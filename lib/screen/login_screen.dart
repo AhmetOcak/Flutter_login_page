@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login_page/components/float_button.dart';
+import 'package:login_page/components/text_form_field.dart';
 import 'package:login_page/constants/constants.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -28,21 +30,32 @@ class _LoginScreenState extends State<LoginScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, top: 100),
-                    child: textFormField('Enter your Email', Icons.email),
+                  const Padding(
+                    padding: EdgeInsets.only(
+                      left: 20,
+                      right: 20,
+                      top: 100,
+                    ),
+                    child: MyTextFormField(
+                      hintText: 'Enter your Email',
+                      iconData: Icons.email,
+                    ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, top: 40),
-                    child: textFormField('Enter your password', Icons.lock),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20, right: 20, top: 40),
+                    child: MyTextFormField(
+                      hintText: 'Enter your password',
+                      iconData: Icons.lock,
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 20, top: 10),
+                        padding: const EdgeInsets.only(
+                          right: 20,
+                          top: 10,
+                        ),
                         child: TextButton(
                           onPressed: () {},
                           child: const Text(
@@ -88,18 +101,20 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Text(
                     "- OR -",
                     style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 13),
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 13,
+                    ),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 13),
                     child: Text(
                       "Sign in with",
                       style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 13),
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 13,
+                      ),
                     ),
                   ),
                   Padding(
@@ -107,9 +122,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         const EdgeInsets.only(left: 80, right: 80, top: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        floatButton('facebook'),
-                        floatButton('google'),
+                      children: const [
+                        FloatButton(image: 'facebook'),
+                        FloatButton(image: 'google'),
                       ],
                     ),
                   ),
@@ -119,49 +134,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  FloatingActionButton floatButton(String image) {
-    return FloatingActionButton(
-      onPressed: () {},
-      backgroundColor: Colors.white,
-      child: Image.asset(
-        "assets/images/$image.png",
-        height: 40,
-      ),
-    );
-  }
-
-  TextFormField textFormField(String hintText, IconData iconData) {
-    return TextFormField(
-      style: const TextStyle(
-        color: Colors.white,
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
-      ),
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.pink[200],
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: const BorderSide(
-              color: Colors.white,
-              style: BorderStyle.none,
-            ),
-          ),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide.none),
-          hintText: hintText,
-          prefixIcon: Icon(
-            iconData,
-            color: Colors.grey[300],
-          ),
-          hintStyle: TextStyle(
-            color: Colors.grey[300],
-          )),
     );
   }
 }

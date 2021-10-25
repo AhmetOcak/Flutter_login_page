@@ -21,4 +21,3 @@ TextStyle myTextStyle = const TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.w400,
 );
-
